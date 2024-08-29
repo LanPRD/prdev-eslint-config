@@ -6,7 +6,7 @@
   "main": "index.js",
   "license": "MIT",
   "repository": {
-    "url": "https://github.com/LanPRD/eslint-config-prdev.git"
+    "url": "https://github.com/LanPRD/prdev-eslint-config.git"
   },
   "keywords": [
     "eslint",
