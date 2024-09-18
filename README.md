@@ -70,6 +70,12 @@ Para instalar esta configuração de ESLint em seu projeto, siga os passos abaix
    }
    ```
 
+3. Adicione o script abaixo em seu package.json (opcional):
+
+   ```json
+   "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+   ```
+
 <!-- CONTACT -->
 
 ## 🌐 Links
@@ -78,3 +84,4 @@ Para instalar esta configuração de ESLint em seu projeto, siga os passos abaix
   <a href="https://portfolio.prdev.com.br/"><img src="https://img.shields.io/badge/Portfolio-255E63?style=for-the-badge&logo=About.me&logoColor=white" /></a>&nbsp;&nbsp;
   <a href="https://www.linkedin.com/in/lanprd/"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" /></a>
 </p>
+```
