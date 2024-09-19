@@ -32,7 +32,14 @@ module.exports = {
         detectObjects: false, // Detecta números mágicos dentro de objetos
       },
     ], // Adiciona suporte para detectar números mágicos em objetos
-    "@typescript-eslint/no-unused-vars": ["error"], // Adiciona verificação de variáveis não utilizadas em TypeScript
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        argsIgnorePattern: "^_",
+        varsIgnorePattern: "^_",
+        caughtErrorsIgnorePattern: "^_",
+      },
+    ], // Adiciona verificação de variáveis não utilizadas em TypeScript
     "@typescript-eslint/no-use-before-define": ["error"], // Verifica o uso de variáveis antes de serem definidas em TypeScript
     camelcase: "error", // Enforce o uso de camelCase
     eqeqeq: ["error", "always"], // Exige o uso de === e !==
