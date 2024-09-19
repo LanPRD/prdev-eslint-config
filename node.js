@@ -18,7 +18,7 @@ module.exports = {
     sourceType: "module", // Permite o uso de import/export
     project: "./tsconfig.json", // Aponta para o arquivo de configuração do TypeScript
   },
-  ignorePatterns: ["dist", ".eslintrc.js", "node_modules"],
+  ignorePatterns: ["dist", ".eslintrc.cjs", ".eslintrc.js", "node_modules"],
   rules: {
     complexity: ["error", 5], // Limita a complexidade ciclomática a 5
     "max-depth": ["error", 3], // Limita a profundidade máxima de blocos aninhados a 3

@@ -4,11 +4,11 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended",
-    "plugin:react/recommended",
   ],
-  ignorePatterns: ["dist", ".eslintrc.js", "node_modules"],
+  ignorePatterns: ["dist", ".eslintrc.cjs", ".eslintrc.js", "node_modules"],
   parser: "@typescript-eslint/parser",
   plugins: ["jsx-a11y"],
   rules: {
@@ -37,8 +37,8 @@ module.exports = {
     ],
   },
   settings: {
-    "import/resolver": {
-      typescript: {}, // Configura o resolver para TypeScript
+    "import/parsers": {
+      [require.resolve("@typescript-eslint/parser")]: [".ts", ".tsx", ".d.ts"],
     },
   },
 };
