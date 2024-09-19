@@ -57,17 +57,21 @@ Para instalar esta configuração de ESLint em seu projeto, siga os passos abaix
    2.1 Para React
 
    ```javascript
-   {
-    extends: "@prdev-solutions/eslint-config/react"
-   }
+   // ...
+   module.exports = {
+     extends: "@prdev-solutions/eslint-config/react",
+   };
+   // ...
    ```
 
    2.2 Para Node.js
 
    ```javascript
-   {
-    extends: "@prdev-solutions/eslint-config/node"
-   }
+   module.exports = {
+     // ...
+     extends: "@prdev-solutions/eslint-config/node",
+     // ...
+   };
    ```
 
 3. Adicione o script abaixo em seu package.json (opcional):
@@ -84,4 +88,3 @@ Para instalar esta configuração de ESLint em seu projeto, siga os passos abaix
   <a href="https://portfolio.prdev.com.br/"><img src="https://img.shields.io/badge/Portfolio-255E63?style=for-the-badge&logo=About.me&logoColor=white" /></a>&nbsp;&nbsp;
   <a href="https://www.linkedin.com/in/lanprd/"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" /></a>
 </p>
-```
