@@ -34,7 +34,6 @@ Principais bibliotecas e plugins integrados nesta configuração:
 - **ESLint:** Linting para JavaScript/TypeScript.
 - **eslint-plugin-import:** Regras para organizar imports/exportações.
 - **eslint-plugin-jsx-a11y:** Regras para acessibilidade em JSX.
-- **eslint-plugin-react:** Boas práticas para desenvolvimento com React.
 - **eslint-plugin-react-hooks:** Regras para garantir o uso correto de hooks em React.
 - **eslint-plugin-promise:** Regras para trabalhar com promessas de forma segura.
 
