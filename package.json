@@ -1,6 +1,6 @@
 {
   "name": "@prdev-solutions/eslint-config",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "private": false,
   "description": "ESLint configuration used by pr.dev",
   "main": "index.js",
@@ -15,8 +15,7 @@
   ],
   "author": "Allan Prado - prdev.solutions@gmail.com",
   "peerDependencies": {
-    "eslint": "^8.0.0",
-    "typescript": ">=5"
+    "typescript": "^5.7.2"
   },
   "peerDependenciesMeta": {
     "typescript": {
@@ -24,15 +23,15 @@
     }
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.8.0",
-    "@typescript-eslint/parser": "^8.8.0",
-    "eslint": "^8.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.16.0",
+    "@typescript-eslint/parser": "^8.16.0",
+    "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.30.0",
-    "eslint-plugin-jsx-a11y": "^6.10.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-promise": "^7.1.0",
+    "eslint-plugin-promise": "^7.2.0",
     "eslint-plugin-react-hooks": "^4.6.2",
-    "prettier": "^3.3.3"
+    "prettier": "^3.4.1"
   }
 }
