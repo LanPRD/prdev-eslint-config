@@ -48,10 +48,10 @@ Para instalar esta configuração de ESLint em seu projeto, siga os passos abaix
 1. Instale o pacote via npm:
 
    ```bash
-   npm install --save-dev eslint @prdev-solutions/eslint-config
+   npm install --save-dev eslint@8.57.0 @prdev-solutions/eslint-config
    ```
 
-2. Crie ou atualize o arquivo .eslintrc.js na raiz do seu projeto:
+2. Crie ou atualize o arquivo `.eslintrc.cjs` na raiz do seu projeto:
 
    2.1 Para React
 
