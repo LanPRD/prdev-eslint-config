@@ -5,10 +5,23 @@ import prettierPlugin from "eslint-plugin-prettier";
 import promisePlugin from "eslint-plugin-promise";
 import reactHooks from "eslint-plugin-react-hooks";
 import globals from "globals";
-import tseslint from "typescript-eslint"; // Pacote unificado
+import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  { ignores: ["dist", ".eslintrc.cjs", ".eslintrc.js", "node_modules"] },
+  {
+    ignores: [
+      "dist",
+      ".eslintrc.cjs",
+      ".eslintrc.js",
+      "node_modules",
+      "settings*",
+      "**/constants.*",
+      "**/settings.*",
+      "**/config.*",
+      "*.config.*",
+      "**/schema.ts"
+    ]
+  },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ["**/*.{ts,tsx}"],
@@ -17,7 +30,7 @@ export default tseslint.config(
       ecmaVersion: "latest",
       sourceType: "module",
       ecmaVersion: "latest",
-      globals: globals.browser,
+      globals: globals.browser
     },
     plugins: {
       "@typescript-eslint": tseslint.plugin,
@@ -25,7 +38,7 @@ export default tseslint.config(
       "react-hooks": reactHooks,
       import: importPlugin,
       promise: promisePlugin,
-      prettier: prettierPlugin,
+      prettier: prettierPlugin
     },
     rules: {
       ...prettierPlugin.configs.recommended.rules,
@@ -42,8 +55,8 @@ export default tseslint.config(
         {
           argsIgnorePattern: "^_",
           varsIgnorePattern: "^_",
-          caughtErrorsIgnorePattern: "^_",
-        },
+          caughtErrorsIgnorePattern: "^_"
+        }
       ],
       "@typescript-eslint/no-use-before-define": ["error"],
       "prettier/prettier": [
@@ -57,20 +70,21 @@ export default tseslint.config(
           bracketSpacing: true,
           endOfLine: "lf",
           proseWrap: "never",
-          printWidth: 120,
-        },
+          printWidth: 120
+        }
       ],
-      // complexity: ["error", 5],
-      // "max-depth": ["error", 3],
+      complexity: ["error", 5],
+      "max-depth": ["error", 3],
       "no-magic-numbers": [
         "error",
         {
-          ignore: [0, 1],
+          ignore: [0, 1, -1],
           ignoreArrayIndexes: true,
           ignoreDefaultValues: true,
           enforceConst: true,
           detectObjects: false,
-        },
+          ignoreClassFieldInitialValues: true
+        }
       ],
       camelcase: "error",
       eqeqeq: ["error", "always"],
@@ -78,17 +92,17 @@ export default tseslint.config(
       "no-else-return": "error",
       "no-fallthrough": "error",
       "array-callback-return": "error",
-      "import/no-named-as-default": "off",
+      "import/no-named-as-default": "off"
     },
 
     settings: {
       "import/resolver": {
         typescript: true,
-        node: true,
+        node: true
       },
       "import/parsers": {
-        "@typescript-eslint/parser": [".ts", ".tsx", ".d.ts"],
-      },
-    },
+        "@typescript-eslint/parser": [".ts", ".tsx", ".d.ts"]
+      }
+    }
   }
 );
