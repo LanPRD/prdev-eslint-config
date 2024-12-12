@@ -1,4 +1,4 @@
-const config = {
+module.exports = {
   trailingComma: "none",
   tabWidth: 2,
   semi: true,
@@ -10,5 +10,3 @@ const config = {
   proseWrap: "never",
   printWidth: 120,
 };
-
-export default config;
