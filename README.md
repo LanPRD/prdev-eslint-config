@@ -36,11 +36,13 @@ Para instalar esta configuração de ESLint em seu projeto, siga os passos abaix
    2.1 Para React
 
    ```javascript
-   // ...
    import ReactConfig from "@prdev-solutions/eslint-config/react.mjs";
 
-   export default [...ReactConfig];
-   // ...
+   export default [
+     // ...
+     ...ReactConfig
+     // ...
+   ];
    ```
 
    Você pode [extender](https://eslint.org/docs/latest/extend/shareable-configs#overriding-settings-from-shareable-configs) a configuração acima como bem entender.
@@ -48,11 +50,13 @@ Para instalar esta configuração de ESLint em seu projeto, siga os passos abaix
    2.2 Para Node.js
 
    ```javascript
-   module.exports = {
+   import NodeConfig from "@prdev-solutions/eslint-config/node.mjs";
+
+   export default [
      // ...
-     extends: "@prdev-solutions/eslint-config/node"
+     ...NodeConfig
      // ...
-   };
+   ];
    ```
 
 3. Crie ou atualize o arquivo `prettier.config.cjs` na raiz do seu projeto:
