@@ -1,72 +1,100 @@
-module.exports = {
-  env: {
-    node: true, // Ambiente Node.js
-    es2021: true, // Permite sintaxe ES2021 (inclui módulos)
+import js from "@eslint/js";
+import importPlugin from "eslint-plugin-import";
+import prettierPlugin from "eslint-plugin-prettier";
+import promisePlugin from "eslint-plugin-promise";
+import globals from "globals";
+import tseslint from "typescript-eslint";
+
+export default tseslint.config(
+  {
+    ignores: [
+      "dist",
+      ".eslintrc.cjs",
+      ".eslintrc.js",
+      "node_modules",
+      "settings*",
+      "**/constants.*",
+      "**/settings.*",
+      "**/config.*",
+      "*.config.*",
+      "**/schema.ts"
+    ]
   },
-  parser: "@typescript-eslint/parser", // Define o parser para TypeScript
-  extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended", // Regras recomendadas para TypeScript
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:import/typescript", // Suporte ao TypeScript no plugin de importação
-    "plugin:promise/recommended",
-    "plugin:prettier/recommended",
-  ],
-  parserOptions: {
-    ecmaVersion: 2021,
-    sourceType: "module", // Permite o uso de import/export
-    project: "./tsconfig.json", // Aponta para o arquivo de configuração do TypeScript
-  },
-  ignorePatterns: ["dist", ".eslintrc.cjs", ".eslintrc.js", "node_modules"],
-  rules: {
-    complexity: ["error", 5], // Limita a complexidade ciclomática a 5
-    "max-depth": ["error", 3], // Limita a profundidade máxima de blocos aninhados a 3
-    "no-magic-numbers": [
-      "error",
-      {
-        ignore: [0, 1], // Números permitidos globalmente
-        ignoreArrayIndexes: true, // Ignora sintaxe de array como números mágicos
-        ignoreDefaultValues: true, // Ignora valores padrão como números mágicos
-        enforceConst: true, // Exige o uso de const para números mágicos
-        detectObjects: false, // Detecta números mágicos dentro de objetos
-      },
-    ], // Adiciona suporte para detectar números mágicos em objetos
-    "@typescript-eslint/no-unused-vars": [
-      "warn",
-      {
-        argsIgnorePattern: "^_",
-        varsIgnorePattern: "^_",
-        caughtErrorsIgnorePattern: "^_",
-      },
-    ], // Adiciona verificação de variáveis não utilizadas em TypeScript
-    "@typescript-eslint/no-use-before-define": ["error"], // Verifica o uso de variáveis antes de serem definidas em TypeScript
-    camelcase: "error", // Enforce o uso de camelCase
-    eqeqeq: ["error", "always"], // Exige o uso de === e !==
-    "prefer-const": "error", // Sugere o uso de const onde possível
-    "no-else-return": "error", // Remove else desnecessários após return
-    "no-fallthrough": "error", // Proíbe o fallthrough em cases de switch
-    "array-callback-return": "error", // Exige que os callbacks de arrays sempre retornem algo
-    "import/no-named-as-default": "off", // Desativa a regra para evitar conflitos com o uso de imports nomeados
-    "@typescript-eslint/no-explicit-any": "off", // Desativa a regra que proíbe o uso de `any`
-    "prettier/prettier": [
-      "error",
-      {
-        trailingComma: "none",
-        tabWidth: 2,
-        semi: true,
-        singleQuote: false,
-        arrowParens: "avoid",
-        bracketSpacing: true,
-        endOfLine: "lf",
-        proseWrap: "never",
-        printWidth: 120,
-      },
-    ],
-  },
-  settings: {
-    "import/parsers": {
-      [require.resolve("@typescript-eslint/parser")]: [".ts", ".tsx", ".d.ts"],
+  {
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    files: ["**/*.{ts,js}"],
+    languageOptions: {
+      parser: tseslint.parser,
+      ecmaVersion: "latest",
+      sourceType: "module",
+      ecmaVersion: "latest",
+      globals: globals.node
     },
-  },
-};
+    plugins: {
+      "@typescript-eslint": tseslint.plugin,
+      import: importPlugin,
+      promise: promisePlugin,
+      prettier: prettierPlugin
+    },
+    rules: {
+      ...prettierPlugin.configs.recommended.rules,
+      ...importPlugin.configs.recommended.rules,
+      ...importPlugin.configs.typescript.rules,
+      ...promisePlugin.configs.recommended.rules,
+
+      complexity: ["error", 5],
+      "max-depth": ["error", 3],
+      "no-magic-numbers": [
+        "error",
+        {
+          ignore: [0, 1, -1],
+          ignoreArrayIndexes: true,
+          ignoreDefaultValues: true,
+          enforceConst: true,
+          detectObjects: false,
+          ignoreClassFieldInitialValues: true
+        }
+      ],
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+          caughtErrorsIgnorePattern: "^_"
+        }
+      ],
+      "@typescript-eslint/no-use-before-define": ["error"],
+      camelcase: "error",
+      eqeqeq: ["error", "always"],
+      "prefer-const": "error",
+      "no-else-return": "error",
+      "no-fallthrough": "error",
+      "array-callback-return": "error",
+      "import/no-named-as-default": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "prettier/prettier": [
+        "error",
+        {
+          trailingComma: "none",
+          tabWidth: 2,
+          semi: true,
+          singleQuote: false,
+          arrowParens: "avoid",
+          bracketSpacing: true,
+          endOfLine: "lf",
+          proseWrap: "never",
+          printWidth: 120
+        }
+      ]
+    },
+    settings: {
+      "import/resolver": {
+        typescript: true,
+        node: true
+      },
+      "import/parsers": {
+        "@typescript-eslint/parser": [".ts", ".d.ts"]
+      }
+    }
+  }
+);

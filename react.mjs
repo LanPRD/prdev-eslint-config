@@ -24,7 +24,7 @@ export default tseslint.config(
   },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ["**/*.{ts,tsx}"],
+    files: ["**/*.{ts,tsx,js,jsx}"],
     languageOptions: {
       parser: tseslint.parser,
       ecmaVersion: "latest",
@@ -48,7 +48,6 @@ export default tseslint.config(
       ...importPlugin.configs.typescript.rules,
       ...promisePlugin.configs.recommended.rules,
 
-      // Regras personalizadas que você tinha antes
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-unused-vars": [
         "warn",
@@ -94,7 +93,6 @@ export default tseslint.config(
       "array-callback-return": "error",
       "import/no-named-as-default": "off"
     },
-
     settings: {
       "import/resolver": {
         typescript: true,
