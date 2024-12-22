@@ -72,7 +72,7 @@ Para instalar esta configuração de ESLint em seu projeto, siga os passos abaix
 4. Adicione o script abaixo em seu package.json (opcional):
 
    ```json
-   "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+   "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
    "prettier:check": "npx prettier --check .",
    "prettier:fix": "npx prettier --write ."
    ```
