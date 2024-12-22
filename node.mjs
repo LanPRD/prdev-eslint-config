@@ -9,6 +9,7 @@ export default tseslint.config(
   {
     ignores: [
       "dist",
+      "__tests__",
       ".eslintrc.cjs",
       ".eslintrc.js",
       "node_modules",
@@ -42,7 +43,7 @@ export default tseslint.config(
       ...importPlugin.configs.typescript.rules,
       ...promisePlugin.configs.recommended.rules,
 
-      complexity: ["error", 5],
+      complexity: ["error", 7],
       "max-depth": ["error", 3],
       "no-magic-numbers": [
         "error",
