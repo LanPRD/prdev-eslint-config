@@ -84,6 +84,7 @@ export default tseslint.config(
           bracketSpacing: true,
           endOfLine: "lf",
           proseWrap: "always",
+          useTabs: false,
           printWidth: 80
         }
       ]
