@@ -38,10 +38,10 @@ export default tseslint.config(
       prettier: prettierPlugin
     },
     rules: {
-      ...prettierPlugin.configs.recommended.rules,
       ...importPlugin.configs.recommended.rules,
       ...importPlugin.configs.typescript.rules,
       ...promisePlugin.configs.recommended.rules,
+      ...prettierPlugin.configs.recommended.rules,
 
       complexity: ["error", 7],
       "max-depth": ["error", 3],
@@ -83,8 +83,8 @@ export default tseslint.config(
           arrowParens: "avoid",
           bracketSpacing: true,
           endOfLine: "lf",
-          proseWrap: "never",
-          printWidth: 120
+          proseWrap: "always",
+          printWidth: 80
         }
       ]
     },

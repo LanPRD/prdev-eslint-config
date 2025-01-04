@@ -7,6 +7,6 @@ module.exports = {
   bracketSpacing: true,
   endOfLine: "lf",
   useTabs: false,
-  proseWrap: "never",
-  printWidth: 120,
+  proseWrap: "always",
+  printWidth: 80
 };

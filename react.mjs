@@ -41,12 +41,12 @@ export default tseslint.config(
       prettier: prettierPlugin
     },
     rules: {
-      ...prettierPlugin.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
       ...jsxA11y.configs.recommended.rules,
       ...importPlugin.configs.recommended.rules,
       ...importPlugin.configs.typescript.rules,
       ...promisePlugin.configs.recommended.rules,
+      ...prettierPlugin.configs.recommended.rules,
 
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-unused-vars": [
