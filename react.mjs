@@ -68,7 +68,7 @@ export default tseslint.config(
           arrowParens: "avoid",
           bracketSpacing: true,
           endOfLine: "lf",
-          proseWrap: "never",
+          proseWrap: "always",
           printWidth: 120
         }
       ],
