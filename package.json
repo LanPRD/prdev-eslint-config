@@ -1,6 +1,6 @@
 {
   "name": "@prdev-solutions/eslint-config",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "private": false,
   "description": "ESLint configuration used by pr.dev",
   "main": "index.js",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@eslint/js": "^9.19.0",
-    "eslint-config-prettier": "^10.0.1",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.7.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
