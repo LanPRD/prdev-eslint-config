@@ -1,6 +1,6 @@
 {
   "name": "@prdev-solutions/eslint-config",
-  "version": "2.3.4",
+  "version": "2.4.0",
   "private": false,
   "description": "ESLint configuration used by pr.dev",
   "main": "index.js",
