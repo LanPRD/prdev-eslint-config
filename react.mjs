@@ -1,8 +1,8 @@
 import js from "@eslint/js";
 import importPlugin from "eslint-plugin-import";
 import jsxA11y from "eslint-plugin-jsx-a11y";
-import prettierPlugin from "eslint-plugin-prettier";
-import promisePlugin from "eslint-plugin-promise";
+import prettierRecommended from "eslint-plugin-prettier/recommended";
+import pluginPromise from "eslint-plugin-promise";
 import reactHooks from "eslint-plugin-react-hooks";
 import globals from "globals";
 import tseslint from "typescript-eslint";
@@ -29,24 +29,24 @@ export default tseslint.config(
       parser: tseslint.parser,
       ecmaVersion: "latest",
       sourceType: "module",
-      ecmaVersion: "latest",
-      globals: globals.browser
+      globals: globals.browser,
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true
+        }
+      }
     },
     plugins: {
       "@typescript-eslint": tseslint.plugin,
       "jsx-a11y": jsxA11y,
       "react-hooks": reactHooks,
-      import: importPlugin,
-      promise: promisePlugin,
-      prettier: prettierPlugin
+      import: importPlugin
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
       ...jsxA11y.configs.recommended.rules,
       ...importPlugin.configs.recommended.rules,
       ...importPlugin.configs.typescript.rules,
-      ...promisePlugin.configs.recommended.rules,
-      ...prettierPlugin.configs.recommended.rules,
 
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-unused-vars": [
@@ -103,5 +103,7 @@ export default tseslint.config(
         "@typescript-eslint/parser": [".ts", ".tsx", ".d.ts"]
       }
     }
-  }
+  },
+  pluginPromise.configs["flat/recommended"],
+  prettierRecommended
 );
