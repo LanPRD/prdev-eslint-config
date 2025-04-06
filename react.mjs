@@ -4,6 +4,7 @@ import jsxA11y from "eslint-plugin-jsx-a11y";
 import prettierRecommended from "eslint-plugin-prettier/recommended";
 import pluginPromise from "eslint-plugin-promise";
 import reactHooks from "eslint-plugin-react-hooks";
+import reactRefresh from "eslint-plugin-react-refresh";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
@@ -23,7 +24,7 @@ export default tseslint.config(
     ]
   },
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    extends: [js.configs.recommended, ...tseslint.configs.recommended, reactRefresh.configs.recommended],
     files: ["**/*.{ts,tsx,js,jsx}"],
     languageOptions: {
       parser: tseslint.parser,
@@ -57,7 +58,6 @@ export default tseslint.config(
           caughtErrorsIgnorePattern: "^_"
         }
       ],
-      "@typescript-eslint/no-use-before-define": ["error"],
       "prettier/prettier": [
         "error",
         {

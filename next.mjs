@@ -61,7 +61,6 @@ export default tseslint.config(
           caughtErrorsIgnorePattern: "^_"
         }
       ],
-      "@typescript-eslint/no-use-before-define": ["error"],
       "prettier/prettier": [
         "error",
         {
