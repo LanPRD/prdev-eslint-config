@@ -24,7 +24,7 @@ export default tseslint.config(
     ]
   },
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended, reactRefresh.configs.recommended],
+    extends: [js.configs.recommended, ...tseslint.configs.recommended, reactRefresh.configs.vite],
     files: ["**/*.{ts,tsx,js,jsx}"],
     languageOptions: {
       parser: tseslint.parser,
