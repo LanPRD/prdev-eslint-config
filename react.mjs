@@ -49,6 +49,7 @@ export default tseslint.config(
       ...importPlugin.configs.recommended.rules,
       ...importPlugin.configs.typescript.rules,
 
+      "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-unused-vars": [
         "warn",
@@ -73,7 +74,7 @@ export default tseslint.config(
           printWidth: 120
         }
       ],
-      complexity: ["error", 5],
+      complexity: ["error", 7],
       "max-depth": ["error", 3],
       "no-magic-numbers": [
         "error",
