@@ -16,9 +16,9 @@
   ],
   "author": "Allan Prado - prdev.solutions@gmail.com",
   "peerDependencies": {
-    "eslint": "^9.28.0",
-    "prettier": "^3.5.3",
-    "typescript": "^5.8.3"
+    "eslint": "^9.33.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2"
   },
   "scripts": {
     "commit": "cz"
@@ -31,17 +31,17 @@
   "dependencies": {
     "@eslint/js": "^9.28.0",
     "@next/eslint-plugin-next": "^15.3.3",
-    "eslint-config-next": "^15.3.3",
-    "eslint-config-prettier": "^10.1.5",
-    "eslint-import-resolver-typescript": "^3.10.1",
-    "eslint-plugin-import": "^2.31.0",
+    "eslint-config-next": "^15.4.6",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-prettier": "^5.4.1",
+    "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
-    "globals": "^16.2.0",
-    "typescript-eslint": "^8.34.0"
+    "globals": "^16.3.0",
+    "typescript-eslint": "^8.40.0"
   },
   "devDependencies": {
     "commitizen": "^4.3.1"
