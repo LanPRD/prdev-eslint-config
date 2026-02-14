@@ -62,10 +62,11 @@ Para instalar esta configuração de ESLint em seu projeto, siga os passos abaix
 3. Crie ou atualize o arquivo `prettier.config.cjs` na raiz do seu projeto:
 
    ```javascript
-   const prettierConfig = require("@prdev-solutions/eslint-config/prettier.cjs");
+   // ou reactPrettier
+   const { nodePrettier } = require("@prdev-solutions/eslint-config/prettier.cjs");
 
    module.exports = {
-     ...prettierConfig
+     ...nodePrettier
    };
    ```
 
@@ -126,11 +127,10 @@ Seguido por estas regras:
 ---
 
 - **no-explicit-any**: off
-- **no-unused-vars**: warm (porém é possível adicionar "\_" caso queira evidenciar a variável não utilizada)
+- **no-unused-vars**: warn (porém é possível adicionar "\_" caso queira evidenciar a variável não utilizada)
 - **prettier**: error (caso não siga as configurações estabelecidas do prettier irá sinalizar erro)
-- **complexity**: error - máx. 5 (Limita a complexidade ciclomática a 5)
+- **complexity**: error - máx. 10 (Limita a complexidade ciclomática a 10)
 - **max-depth**: error - máx. 3 (Limita a profundidade máxima de blocos aninhados a 3)
-- **no-magic-numbers**: error - com exceção de números como [0, 1, -1]. Também possui como **true** ignoreArrayIndexes, ignoreDefaultValues, enforceConst e ignoreClassFieldInitialValues. Como **false** apenas detectObjects
 - **camelcase**: error
 - **eqeqeq**: error - always
 - **prefer-const**: error

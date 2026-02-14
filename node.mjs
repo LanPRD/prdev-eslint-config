@@ -2,10 +2,11 @@ import js from "@eslint/js";
 import importPlugin from "eslint-plugin-import";
 import prettierRecommended from "eslint-plugin-prettier/recommended";
 import pluginPromise from "eslint-plugin-promise";
+import { defineConfig } from "eslint/config";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
-export default tseslint.config(
+export default defineConfig(
   {
     ignores: [
       "dist",
@@ -38,19 +39,8 @@ export default tseslint.config(
       ...importPlugin.configs.recommended.rules,
       ...importPlugin.configs.typescript.rules,
 
-      complexity: ["error", 7],
+      complexity: ["error", 10],
       "max-depth": ["error", 3],
-      "no-magic-numbers": [
-        "error",
-        {
-          ignore: [0, 1, -1],
-          ignoreArrayIndexes: true,
-          ignoreDefaultValues: true,
-          enforceConst: true,
-          detectObjects: false,
-          ignoreClassFieldInitialValues: true
-        }
-      ],
       "@typescript-eslint/no-unused-vars": [
         "warn",
         {
