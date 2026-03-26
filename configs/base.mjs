@@ -7,6 +7,7 @@ import tseslint from "typescript-eslint";
 export const ignoresConfig = {
   ignores: [
     "dist",
+    ".next",
     "__tests__",
     ".eslintrc.cjs",
     ".eslintrc.js",
