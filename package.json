@@ -1,6 +1,6 @@
 {
   "name": "@prdev-solutions/eslint-config",
-  "version": "2.5.5",
+  "version": "2.6.0",
   "private": false,
   "description": "ESLint configuration used by pr.dev",
   "exports": {
