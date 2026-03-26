@@ -4,9 +4,9 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/ESLint_logo.svg" alt="ESLint Logo" width="124" height="124">
 </p>
 
-<h2 align="center">ESLint v9 (Flat config)</h2>
+<h2 align="center">ESLint v9+ (Flat Config)</h2>
 
-<p align="center"> 🚀 Uma configuração personalizada do ESLint para garantir qualidade e consistência em seus projetos JavaScript e TypeScript.</p>
+<p align="center">Uma configuracao personalizada do ESLint para garantir qualidade e consistencia em seus projetos JavaScript e TypeScript.</p>
 
 <p align="center">
   <img alt="npm" src="https://img.shields.io/npm/v/@prdev-solutions/eslint-config?style=for-the-badge"/>
@@ -16,93 +16,92 @@
 </p>
 
 <h3 align="center">
-  <a href="https://eslint.org/docs/latest/user-guide/getting-started"> Leia mais sobre o ESLint 📚</a>
+  <a href="https://eslint.org/docs/latest/user-guide/getting-started">Leia mais sobre o ESLint</a>
 </h3>
 
-<!-- INSTALLATION -->
+## Instalacao
 
-## 📦 Instalação
-
-Para instalar esta configuração de ESLint em seu projeto, siga os passos abaixo:
+Para instalar esta configuracao de ESLint em seu projeto, siga os passos abaixo:
 
 1. Instale o pacote via npm:
 
-   ```bash
-   npm install --save-dev eslint prettier @prdev-solutions/eslint-config
-   ```
+```bash
+npm install --save-dev eslint prettier @prdev-solutions/eslint-config
+```
 
 2. Crie ou atualize o arquivo `eslint.config.mjs` na raiz do seu projeto:
 
-   2.1 Para React
+### React (Vite)
 
-   ```javascript
-   import ReactConfig from "@prdev-solutions/eslint-config/react.mjs";
+```javascript
+import ReactConfig from "@prdev-solutions/eslint-config/react.mjs";
 
-   export default [
-     // ...
-     ...ReactConfig
-     // ...
-   ];
-   ```
+export default [...ReactConfig];
+```
 
-   Você pode [extender](https://eslint.org/docs/latest/extend/shareable-configs#overriding-settings-from-shareable-configs) a configuração acima como bem entender.
+### Next.js
 
-   2.2 Para Node.js
+```javascript
+import NextConfig from "@prdev-solutions/eslint-config/next.mjs";
 
-   ```javascript
-   import NodeConfig from "@prdev-solutions/eslint-config/node.mjs";
+export default [...NextConfig];
+```
 
-   export default [
-     // ...
-     ...NodeConfig
-     // ...
-   ];
-   ```
+### Node.js
+
+```javascript
+import NodeConfig from "@prdev-solutions/eslint-config/node.mjs";
+
+export default [...NodeConfig];
+```
+
+Voce pode [extender](https://eslint.org/docs/latest/extend/shareable-configs#overriding-settings-from-shareable-configs)
+a configuracao acima como bem entender.
 
 3. Crie ou atualize o arquivo `prettier.config.cjs` na raiz do seu projeto:
 
-   ```javascript
-   // ou reactPrettier
-   const { nodePrettier } = require("@prdev-solutions/eslint-config/prettier.cjs");
+```javascript
+const { reactPrettier } = require("@prdev-solutions/eslint-config/prettier.cjs");
+// ou nodePrettier para projetos Node.js
 
-   module.exports = {
-     ...nodePrettier
-   };
-   ```
+module.exports = {
+  ...reactPrettier
+};
+```
 
-4. Adicione o script abaixo em seu package.json (opcional):
+4. Adicione os scripts abaixo em seu package.json (opcional):
 
-   ```json
-   "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
-   "prettier:check": "npx prettier --check .",
-   "prettier:fix": "npx prettier --write ."
-   ```
+```json
+{
+  "scripts": {
+    "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
+    "prettier:check": "npx prettier --check .",
+    "prettier:fix": "npx prettier --write ."
+  }
+}
+```
 
-<!-- DOCUMENTATION -->
+## Documentacao
 
-## 📄 Documentação
+Este pacote fornece configuracoes de ESLint prontas para uso em projetos JavaScript/TypeScript. Disponiveis para React,
+Next.js e Node.js.
 
-Este pacote fornece uma configuração de ESLint pronta para uso, especialmente útil em projetos que utilizam JavaScript/TypeScript e React. A configuração é altamente personalizável e inclui integrações com Prettier para garantir um código bem formatado e padronizado.
+### Configuracoes Disponiveis
 
-### Tecnologias e Ferramentas
+| Config      | Uso          | Plugins Inclusos                                                |
+| ----------- | ------------ | --------------------------------------------------------------- |
+| `react.mjs` | React + Vite | react-hooks, react-refresh, jsx-a11y, import, promise, prettier |
+| `next.mjs`  | Next.js      | react-hooks, jsx-a11y, @next/next, import, promise, prettier    |
+| `node.mjs`  | Node.js      | import, promise, prettier                                       |
 
-Principais bibliotecas e plugins integrados nesta configuração:
+### Arquivos Ignorados
 
-- **TypeScript:** Suporte a tipagem estática para JavaScript.
-- **Prettier:** Formatação de código automática e consistente.
-- **ESLint:** Linting para JavaScript/TypeScript.
-- **eslint-plugin-import:** Regras para organizar imports/exportações.
-- **eslint-plugin-jsx-a11y:** Regras para acessibilidade em JSX.
-- **eslint-plugin-react-hooks:** Regras para garantir o uso correto de hooks em React.
-- **eslint-plugin-promise:** Regras para trabalhar com promessas de forma segura.
-
-### ESLint - Configuração padrão
-
-Por padrão os arquivos que serão ignorados pelo ESLint são estes:
+Por padrao, os seguintes arquivos/pastas sao ignorados pelo ESLint:
 
 ```javascript
 ignores: [
   "dist",
+  "__tests__",
   ".eslintrc.cjs",
   ".eslintrc.js",
   "node_modules",
@@ -115,33 +114,25 @@ ignores: [
 ];
 ```
 
-Seguido por estas regras:
+### Regras Principais
 
-- **prettierPlugin.configs.recommended.rules**
-- **reactHooks.configs.recommended.rules**
-- **jsxA11y.configs.recommended.rules**
-- **importPlugin.configs.recommended.rules**
-- **importPlugin.configs.typescript.rules**
-- **promisePlugin.configs.recommended.rules**
+| Regra                                | Valor          | Descricao                                                   |
+| ------------------------------------ | -------------- | ----------------------------------------------------------- |
+| `@typescript-eslint/no-explicit-any` | off            | Permite uso de `any`                                        |
+| `@typescript-eslint/no-unused-vars`  | warn           | Avisa sobre variaveis nao utilizadas (ignora `_prefixadas`) |
+| `complexity`                         | error (max 10) | Limita complexidade ciclomatica                             |
+| `max-depth`                          | error (max 3)  | Limita profundidade de blocos aninhados                     |
+| `camelcase`                          | error          | Exige camelCase                                             |
+| `eqeqeq`                             | error (always) | Exige `===` e `!==`                                         |
+| `prefer-const`                       | error          | Prefere `const` quando possivel                             |
+| `no-else-return`                     | error          | Evita `else` apos `return`                                  |
+| `no-fallthrough`                     | error          | Evita fallthrough em switch                                 |
+| `array-callback-return`              | error          | Exige return em callbacks de array                          |
 
----
-
-- **no-explicit-any**: off
-- **no-unused-vars**: warn (porém é possível adicionar "\_" caso queira evidenciar a variável não utilizada)
-- **prettier**: error (caso não siga as configurações estabelecidas do prettier irá sinalizar erro)
-- **complexity**: error - máx. 10 (Limita a complexidade ciclomática a 10)
-- **max-depth**: error - máx. 3 (Limita a profundidade máxima de blocos aninhados a 3)
-- **camelcase**: error
-- **eqeqeq**: error - always
-- **prefer-const**: error
-- **no-fallthrough**: error
-- **array-callback-return**: error
-- **import/no-named-as-default**: off
-
-### Prettier - Configuração padrão
+### Prettier - Configuracao
 
 ```javascript
-module.exports = {
+{
   trailingComma: "none",
   tabWidth: 2,
   semi: true,
@@ -150,14 +141,30 @@ module.exports = {
   bracketSpacing: true,
   endOfLine: "lf",
   useTabs: false,
-  proseWrap: "never",
-  printWidth: 120
-};
+  proseWrap: "always",
+  experimentalTernaries: true,
+  printWidth: 120  // React/Next.js
+  // printWidth: 80  // Node.js
+}
 ```
 
-<!-- CONTACT -->
+## Estrutura do Projeto
 
-## 🌐 Links
+```
+@prdev-solutions/eslint-config/
+├── configs/
+│   ├── base.mjs      # Configuracoes compartilhadas
+│   ├── prettier.mjs  # Configuracao do Prettier (ESM)
+│   ├── react.mjs     # Config React/Vite
+│   ├── node.mjs      # Config Node.js
+│   └── next.mjs      # Config Next.js
+├── react.mjs         # Entry point React
+├── node.mjs          # Entry point Node.js
+├── next.mjs          # Entry point Next.js
+└── prettier.cjs      # Export Prettier (CommonJS)
+```
+
+## Links
 
 <p align="center">
   <a href="https://portfolio.prdev.com.br/"><img src="https://img.shields.io/badge/Portfolio-255E63?style=for-the-badge&logo=About.me&logoColor=white" alt="Porfolio Allan Prado"/></a>&nbsp;&nbsp;
