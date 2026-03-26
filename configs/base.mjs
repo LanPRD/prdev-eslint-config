@@ -7,11 +7,20 @@ import tseslint from "typescript-eslint";
 export const ignoresConfig = {
   ignores: [
     "dist",
+    "build",
     ".next",
+    ".turbo",
+    ".vercel",
+    ".swc",
+    "node_modules",
     "__tests__",
+    "coverage",
+    "data",
+    "docs",
+    "public",
+    "prisma",
     ".eslintrc.cjs",
     ".eslintrc.js",
-    "node_modules",
     "settings*",
     "**/constants.*",
     "**/settings.*",
@@ -61,4 +70,4 @@ export function createPrettierRules(config) {
   };
 }
 
-export { js, importPlugin, prettierRecommended, pluginPromise, tseslint };
+export { importPlugin, js, pluginPromise, prettierRecommended, tseslint };
