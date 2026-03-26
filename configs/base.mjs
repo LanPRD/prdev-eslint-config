@@ -22,7 +22,10 @@ export const ignoresConfig = {
 
 export const importSettings = {
   "import/resolver": {
-    typescript: true,
+    typescript: {
+      alwaysTryTypes: true,
+      project: true
+    },
     node: true
   },
   "import/parsers": {
