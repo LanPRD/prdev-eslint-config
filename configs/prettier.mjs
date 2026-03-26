@@ -1,4 +1,4 @@
-const prettierBase = {
+export const prettierBase = {
   trailingComma: "none",
   tabWidth: 2,
   semi: true,
@@ -11,14 +11,12 @@ const prettierBase = {
   experimentalTernaries: true
 };
 
-const reactPrettier = {
+export const prettierReact = {
   ...prettierBase,
   printWidth: 120
 };
 
-const nodePrettier = {
+export const prettierNode = {
   ...prettierBase,
   printWidth: 80
 };
-
-module.exports = { prettierBase, reactPrettier, nodePrettier };
