@@ -1,7 +1,7 @@
 import next from "@next/eslint-plugin-next";
-import { defineConfig } from "eslint/config";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import reactHooks from "eslint-plugin-react-hooks";
+import { defineConfig } from "eslint/config";
 import globals from "globals";
 
 import {
